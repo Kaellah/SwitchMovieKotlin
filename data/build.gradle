@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion compileSdk
+    buildToolsVersion buildTools
+
+    defaultConfig {
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+        versionCode rootProject.totalVersionCode
+        versionName rootProject.versionName
+        testInstrumentationRunner 'android.test.InstrumentationTestRunner'
+        buildConfigField 'String', 'API_URL', "\"$API_URL\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    compile project(':domain')
+
+    compile "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+    compile "javax.inject:javax.inject:${javaxVersion}"
+
+    compile "com.squareup.okhttp3:okhttp:${okHttp}"
+    compile "com.squareup.okhttp3:logging-interceptor:${okHttp}"
+
+    compile "com.google.code.gson:gson:${gson}"
+    compile "com.squareup.retrofit2:retrofit:${retrofit}"
+    compile "com.squareup.retrofit2:adapter-rxjava2:${retrofit}"
+    compile "com.squareup.retrofit2:converter-gson:${retrofit}"
+
+    compile "com.jakewharton.timber:timber:${timber}"
+
+    compile "com.github.artemkopan:base-utils:${baseProject}"
+
+    compile "android.arch.persistence.room:runtime:${arch}"
+    compile "android.arch.persistence.room:rxjava2:${arch}"
+    kapt "android.arch.persistence.room:compiler:${arch}"
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    compile 'com.jakewharton.threetenabp:threetenabp:1.0.5'
+}
+repositories {
+    mavenCentral()
+}
