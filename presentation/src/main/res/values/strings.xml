@@ -1,2 +1,13 @@
 <resources>
+
+
+    <string name="error_undefined">Unexpected error. Please, try again</string>
+    <string name="error_internet_connection">No internet connection or server is unavailable</string>
+    <string name="error_internet_timeout">Request timeout. Please, try again</string>
+    <string name="error_empty_field">Please fill out this field</string>
+    <string name="error_socket_connect">Sorry, but we can\'t connect to chat… Please try again later</string>
+
+
+    <string name="movies">Movies</string>
+
 </resources>

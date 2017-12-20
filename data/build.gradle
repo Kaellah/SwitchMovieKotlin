@@ -13,6 +13,7 @@ android {
         versionName rootProject.versionName
         testInstrumentationRunner 'android.test.InstrumentationTestRunner'
         buildConfigField 'String', 'API_URL', "\"$API_URL\""
+        buildConfigField 'String', 'API_KEY', "\"$API_KEY\""
     }
 
     buildTypes {
@@ -21,7 +22,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {

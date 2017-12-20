@@ -19,6 +19,7 @@ android {
 
         resValue 'string', 'app_name', "\"$APP_NAME\""
         buildConfigField 'String', 'API_URL', "\"$API_URL\""
+        buildConfigField 'String', 'API_KEY', "\"$API_KEY\""
     }
 
     buildTypes {
@@ -98,6 +99,9 @@ dependencies {
 
     compile  "com.jakewharton.timber:timber:${timber}"
     compile  "com.orhanobut:logger:${loger}"
+    debugCompile "com.facebook.stetho:stetho:${stetho}"
+    debugCompile "com.facebook.stetho:stetho-okhttp3:${stetho}"
+    releaseCompile "net.igenius:stetho-no-op:1.1"
 
     compile  'com.github.simonpercic:oklog3:2.2.0'
 

@@ -1,6 +1,7 @@
 //Additional data
 ext {
-    API_URL = "http://144.76.79.142:3100/v1/"   // http://54.210.228.121:3000/ - prod
+    API_URL = "http://api.themoviedb.org/3/"
+    API_KEY = "ebea8cfca72fdff8d2624ad7bbf78e4c"
 }
 
 //Android apps' versions
