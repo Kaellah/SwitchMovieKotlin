@@ -1,6 +1,7 @@
 package com.kaellah.switchappkotlin.dependency.module
 
 import com.kaellah.data.api.MoviesService
+import com.kaellah.data.dao.AppDatabase
 import com.kaellah.data.repository.movie.MovieDataRepository
 import com.kaellah.domain.repository.movie.MovieRepository
 import dagger.Module
@@ -22,7 +23,8 @@ class DataModule {
 //
     @Singleton
     @Provides
-    fun provideMoviesRepo(apiService: MoviesService): MovieRepository = MovieDataRepository(apiService)
+    fun provideMoviesRepo(apiService: MoviesService, appDatabase: AppDatabase)
+            : MovieRepository = MovieDataRepository(apiService, appDatabase.movieDao())
 //
 //    @Singleton
 //    @Provides

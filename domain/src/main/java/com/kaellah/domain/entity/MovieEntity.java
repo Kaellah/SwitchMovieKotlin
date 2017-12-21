@@ -9,7 +9,6 @@ public class MovieEntity {
 
     private Boolean adult;
     private String backdropPath;
-    private List<Integer> genreIds = null;
     private Integer id;
     private String originalLanguage;
     private String originalTitle;
@@ -36,14 +35,6 @@ public class MovieEntity {
 
     public void setBackdropPath(String backdropPath) {
         this.backdropPath = backdropPath;
-    }
-
-    public List<Integer> getGenreIds() {
-        return genreIds;
-    }
-
-    public void setGenreIds(List<Integer> genreIds) {
-        this.genreIds = genreIds;
     }
 
     public Integer getId() {

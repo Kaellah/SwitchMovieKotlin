@@ -8,15 +8,41 @@ import android.arch.persistence.room.PrimaryKey
 data class Movie(
 
         @PrimaryKey
-        val id: String,
+        val id: Int,
 
-        @ColumnInfo(name = "avatar")
-        val avatar: String,
+        @ColumnInfo(name = "adult")
+        val adult: Boolean,
 
-        @ColumnInfo(name = "first_name")
-        val firstName: String,
+        @ColumnInfo(name = "backdropPath")
+        val backdropPath: String,
 
-        @ColumnInfo(name = "last_name")
-        val lastName: String
+        @ColumnInfo(name = "originalLanguage")
+        val originalLanguage: String,
 
+        @ColumnInfo(name = "originalTitle")
+        val originalTitle: String,
+
+        @ColumnInfo(name = "overview")
+        val overview: String,
+
+        @ColumnInfo(name = "releaseDate")
+        val releaseDate: String,
+
+        @ColumnInfo(name = "posterPath")
+        val posterPath: String,
+
+        @ColumnInfo(name = "popularity")
+        val popularity: Float,
+
+        @ColumnInfo(name = "title")
+        val title: String,
+
+        @ColumnInfo(name = "video")
+        val video: Boolean,
+
+        @ColumnInfo(name = "voteAverage")
+        val voteAverage: Float,
+
+        @ColumnInfo(name = "voteCount")
+        val voteCount: Int
 )

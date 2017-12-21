@@ -17,7 +17,7 @@ import com.kaellah.switchappkotlin.view.base.BaseActivity
  */
 class MoviesActivity : BaseActivity<MoviesViewModule>(), Injectable {
 
-    override fun getContentView(): Int = R.layout.activity_movies
+    override fun getContentView(): Int = R.layout.activity_base
 
     override fun getViewModelClass(): Class<MoviesViewModule> = MoviesViewModule::class.java
 

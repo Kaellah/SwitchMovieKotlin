@@ -1,13 +1,13 @@
 package com.kaellah.data.mapper.api
 
-import com.kaellah.data.response.MovieResponse
+import com.kaellah.data.dao.movie.Movie
 import com.kaellah.domain.entity.MovieEntity
 import com.kaellah.domain.util.Mapper
 
 
-object MoviesMapper : Mapper<MovieEntity, MovieResponse>() {
+object MoviesEntityMapper : Mapper<MovieEntity, Movie>() {
 
-    override fun map(from: MovieResponse, payload: Any?): MovieEntity {
+    override fun map(from: Movie, payload: Any?): MovieEntity {
         val movie = MovieEntity()
         movie.id = from.id
         movie.adult = from.adult
@@ -25,7 +25,7 @@ object MoviesMapper : Mapper<MovieEntity, MovieResponse>() {
         return movie
     }
 
-    override fun reverseMap(to: MovieEntity, payload: Any?): MovieResponse {
+    override fun reverseMap(to: MovieEntity, payload: Any?): Movie {
         throw notImplementedException()
     }
 }
