@@ -12,4 +12,6 @@ import io.reactivex.Single;
 public interface MovieRepository {
 
     Single<List<MovieEntity>> getMovies(int page);
+
+    Single<MovieEntity> getMovie();
 }

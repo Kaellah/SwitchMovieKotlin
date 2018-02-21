@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MovieTextView" >
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/gray_light</item>
+        <item name="android:layout_marginStart">@dimen/spacing</item>
+    </style>
+
+    <style name="MovieTextViewBig" parent="MovieTextView">
+        <item name="android:padding">@dimen/spacing</item>
+        <item name="android:textSize">@dimen/text_biggest</item>
+    </style>
+
+    <style name="MovieTextViewSmall" parent="MovieTextView">
+        <item name="android:padding">@dimen/spacing</item>
+        <item name="android:textSize">@dimen/text_more</item>
+    </style>
+
+    <style name="Divider" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/stroke</item>
+        <item name="android:background">@color/lighter_gray</item>
+        <item name="android:layout_marginLeft">@dimen/spacing</item>
+        <item name="android:layout_marginRight">@dimen/spacing</item>
+    </style>
+
+</resources>

@@ -24,11 +24,12 @@ class MoviesViewModule @Inject constructor(private val moviesUseCase: GetMoviesU
         if (fetch) {
             moviesUseCase.page = 1
             moviesUseCase.fetch = fetch
+
         } else if (!CollectionUtils.isEmpty(oldList)) {
             moviesUseCase.page = 1// oldList.lastOrNull()?.page todo need add pagination
         }
         return moviesUseCase.execute()
-                .map { it.to(DiffUtil.calculateDiff(MoviesAdapter.Diff(oldList, it))) }
+                .map { it to DiffUtil.calculateDiff(MoviesAdapter.Diff(oldList, it)) }
                 .observeOn(AndroidSchedulers.mainThread())
     }
 }

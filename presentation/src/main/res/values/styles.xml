@@ -41,4 +41,19 @@
         <item name="erv_textColor">@android:color/white</item>
     </style>
 
+    <!--VIEW STYLES-->
+    <style name="Constraint"/>
+
+    <style name="Constraint.Guideline">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Constraint.Guideline.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Constraint.Guideline.Horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
 </resources>

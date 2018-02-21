@@ -10,4 +10,12 @@
 
     <string name="movies">Movies</string>
 
+    <string name="Score">Score:</string>
+    <string name="Rating">Rating:</string>
+    <string name="Release_date">Release Date:</string>
+
+    <string name="Adult">R</string>
+    <string name="PG">PG-13</string>
+    <string name="no_data">No data</string>
+
 </resources>

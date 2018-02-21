@@ -14,7 +14,7 @@ data class Movie(
         val adult: Boolean,
 
         @ColumnInfo(name = "backdropPath")
-        val backdropPath: String,
+        val backdropPath: String?,
 
         @ColumnInfo(name = "originalLanguage")
         val originalLanguage: String,

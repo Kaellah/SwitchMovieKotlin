@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="RtlHardcoded,ContentDescription"
+    >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarMovies"
+        style="@style/Toolbar.Shadow"
+        app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toolbarMovies"
+        >
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline_40_horizontal"
+                style="@style/Constraint.Guideline.Vertical"
+                app:layout_constraintGuide_percent="0.40"
+                />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/movieImageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/placeholder"
+                app:layout_constraintBottom_toBottomOf="@id/releaseTextViewValue"
+                app:layout_constraintDimensionRatio="h,1:1.1"
+                app:layout_constraintEnd_toStartOf="@id/guideline_40_horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/scoreTextViewTitle"
+                style="@style/MovieTextView"
+                android:text="@string/Score"
+                android:textSize="@dimen/text_more"
+                app:layout_constraintStart_toEndOf="@id/guideline_40_horizontal"
+                />
+
+            <TextView
+                android:id="@+id/scoreTextViewValue"
+                style="@style/MovieTextView"
+                android:textSize="@dimen/text_big"
+                app:layout_constraintStart_toEndOf="@id/guideline_40_horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/scoreTextViewTitle"
+                tools:text="8.2"
+                />
+
+            <TextView
+                android:id="@+id/ratingTextViewTitle"
+                style="@style/MovieTextView"
+                android:layout_marginTop="@dimen/spacing"
+                android:text="@string/Rating"
+                android:textSize="@dimen/text_more"
+                app:layout_constraintStart_toEndOf="@id/guideline_40_horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/scoreTextViewValue"
+                />
+
+            <TextView
+                android:id="@+id/ratingTextViewValue"
+                style="@style/MovieTextView"
+                android:textSize="@dimen/text_big"
+                app:layout_constraintStart_toEndOf="@id/guideline_40_horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/ratingTextViewTitle"
+                tools:text="R"
+                />
+
+            <TextView
+                android:id="@+id/releaseTextViewTitle"
+                style="@style/MovieTextView"
+                android:layout_marginTop="@dimen/spacing"
+                android:text="@string/Release_date"
+                android:textSize="@dimen/text_more"
+                app:layout_constraintStart_toEndOf="@id/guideline_40_horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/ratingTextViewValue"
+                />
+
+            <TextView
+                android:id="@+id/releaseTextViewValue"
+                style="@style/MovieTextView"
+                android:textSize="@dimen/text_big"
+                app:layout_constraintStart_toEndOf="@id/guideline_40_horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/releaseTextViewTitle"
+                tools:text="July 17, 2015"
+                />
+
+            <TextView
+                android:id="@+id/titleTextViewValue"
+                style="@style/MovieTextViewBig"
+                app:layout_constraintTop_toBottomOf="@id/releaseTextViewValue"
+                tools:text="Ant - Man(2015)"
+                />
+
+            <View
+                android:id="@+id/divider"
+                style="@style/Divider"
+                app:layout_constraintTop_toBottomOf="@id/titleTextViewValue"
+                />
+
+            <TextView
+                android:id="@+id/overviewTextViewValue"
+                style="@style/MovieTextViewSmall"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                tools:text="Bla bla bla bla"
+                />
+
+            <View
+                style="@style/Divider"
+                app:layout_constraintTop_toBottomOf="@id/overviewTextViewValue"
+                />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

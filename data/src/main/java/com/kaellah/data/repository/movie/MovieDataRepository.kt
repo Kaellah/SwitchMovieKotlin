@@ -27,4 +27,8 @@ class MovieDataRepository(private val moviesService: MoviesService,
                     MoviesMapper.mapList(it.results, null)
                 }
     }
+
+    override fun getMovie(): Single<MovieEntity> {
+        return Single.never()
+    }
 }

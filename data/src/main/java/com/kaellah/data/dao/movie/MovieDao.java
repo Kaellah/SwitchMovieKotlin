@@ -21,11 +21,11 @@ public interface MovieDao {
     @Query("select * from " + TABLE_MOVIES + " where movies.id in (:ids)")
     List<Movie> getMovies(List<String> ids);
 
-    @Query("select * from " + TABLE_MOVIES + " where movies.id like :userId limit 1")
-    Flowable<Movie> subscribeMovie(String userId);
+//    @Query("select * from " + TABLE_MOVIES + " where movies.id like :id limit 1")
+//    Flowable<Movie> subscribeMovie(String id);
 
-    @Query("select * from " + TABLE_MOVIES + " where movies.id like :userId limit 1")
-    Single<Movie> getMovie(String userId);
+    @Query("select * from " + TABLE_MOVIES + " where movies.id like :id limit 1")
+    Single<Movie> getMovie(String id);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(List<Movie> movies);

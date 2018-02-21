@@ -8,7 +8,6 @@ import android.view.View
 import com.artemkopan.recycler.listeners.OnItemClickListener
 import com.artemkopan.utils.AnimUtils
 import com.kaellah.domain.entity.MovieEntity
-import com.kaellah.switchappkotlin.R
 import com.kaellah.switchappkotlin.dependency.Injectable
 import com.kaellah.switchappkotlin.ui.movies.MoviesViewModule
 import com.kaellah.switchappkotlin.view.base.BaseFragment
