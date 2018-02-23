@@ -15,11 +15,11 @@ import com.kaellah.switchappkotlin.view.base.BaseActivity
 /**
  * @since 12/20/17
  */
-class MoviesActivity : BaseActivity<MoviesViewModule>(), Injectable {
+class MoviesActivity : BaseActivity<MoviesViewModel>(), Injectable {
 
     override fun getContentView(): Int = R.layout.activity_base
 
-    override fun getViewModelClass(): Class<MoviesViewModule> = MoviesViewModule::class.java
+    override fun getViewModelClass(): Class<MoviesViewModel> = MoviesViewModel::class.java
 
     @TargetApi(VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,13 +27,15 @@ class MoviesActivity : BaseActivity<MoviesViewModule>(), Injectable {
 
         if (savedInstanceState == null) {
             val fragment = MoviesListFragment.newInstance()
-            if (ExtraUtils.postLollipop()) fragment.reenterTransition = Slide(Gravity.START)
-            Router.fragment()
-                    .useCustomAnim(false)
-                    .addToBackStack(false)
-                    .setIdRes(R.id.frameContainer)
-                    .setFragment(fragment)
-                    .start(this)
+//            if (ExtraUtils.postLollipop()) fragment.reenterTransition = Slide(Gravity.START)
+//            Router.fragment()
+//                    .useCustomAnim(false)
+//                    .addToBackStack(false)
+//                    .setIdRes(R.id.frameContainer)
+//                    .setFragment(fragment)
+//                    .start(this)
+
+            startFragment(fragment, false)
         }
     }
 }

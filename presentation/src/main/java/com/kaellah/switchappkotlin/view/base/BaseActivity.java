@@ -12,6 +12,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
+import android.transition.Slide;
+import android.view.Gravity;
 import android.view.View;
 
 import com.artemkopan.utils.ExtraUtils;
@@ -146,7 +148,7 @@ public abstract class BaseActivity<V extends ViewModel> extends AppCompatActivit
     }
 
     protected void startFragment(@NonNull BaseFragment fragment, boolean addToBackStack) {
-//        if (ExtraUtils.postLollipop()) fragment.setReenterTransition(new Slide(Gravity.START));
+        if (ExtraUtils.postLollipop()) fragment.setReenterTransition(new Slide(Gravity.START));
         Router.fragment()
               .useCustomAnim(false)
               .addToBackStack(addToBackStack)

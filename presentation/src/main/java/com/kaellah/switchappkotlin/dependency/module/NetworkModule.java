@@ -39,15 +39,10 @@ import timber.log.Timber;
 public class NetworkModule {
 
     private static final String TAG = "OkHttp";
-    private static final String AUTHORIZATION = "Authorization";
-    private static final String AUTHORIZATION_PAYMENT = "AuthorizationPayment";
 
     @Provides
     @Singleton
-    OkHttpClient provideOkhttp(Context context,
-//                               final @AuthToken Provider<String> tokenProvider,
-//                               final @PaymentToken Provider<String> paymentTokenProvider,
-                               final SharedPreferences prefs) {
+    OkHttpClient provideOkhttp(Context context) {
         OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder()
                 .followRedirects(true)
                 .followSslRedirects(true)
@@ -64,19 +59,6 @@ public class NetworkModule {
 
         clientBuilder.addNetworkInterceptor(chain -> {
             Request request = chain.request();
-//            String header = request.header(Headers.APPLY_API_AUTH);
-//            if (TextUtils.isEmpty(header) || Boolean.valueOf(header)) {
-//                String token = tokenProvider.get();
-//                String paymentToken = paymentTokenProvider.get();
-//                Builder builder = request.newBuilder();
-//                if (!TextUtils.isEmpty(token)) {
-//                    builder.addHeader(AUTHORIZATION, token);
-//                }
-//                if (!TextUtils.isEmpty(paymentToken)) {
-//                    builder.addHeader(AUTHORIZATION_PAYMENT, paymentToken);
-//                }
-//                request = builder.build();
-//            }
             return chain.proceed(request);
         });
 
@@ -100,8 +82,6 @@ public class NetworkModule {
             clientBuilder.addNetworkInterceptor(new StethoInterceptor());
             clientBuilder.addNetworkInterceptor(new HttpLoggingInterceptor(logger).setLevel(Level.BODY));
         }
-
-//        clientBuilder.addNetworkInterceptor(new WalletResponseInterceptor(prefs));
 
         return clientBuilder.build();
     }
@@ -172,27 +152,4 @@ public class NetworkModule {
         int cacheSize = 15 * 1024 * 1024; // 10 MiB
         return new Cache(cacheDirectory, cacheSize);
     }
-
-//    private static class WalletResponseInterceptor implements Interceptor {
-//
-//        private final SharedPreferences prefs;
-//
-//        WalletResponseInterceptor(@NonNull SharedPreferences preferences) {
-//            prefs = preferences;
-//        }
-//
-//        @Override
-//        public Response intercept(@NonNull Chain chain) throws IOException {
-//            Request request = chain.request();
-//            if (!TextUtils.isEmpty(request.header(AUTHORIZATION_PAYMENT))) {
-//                Response originalResponse = chain.proceed(request);
-//                String paymentAuth = originalResponse.header(AUTHORIZATION_PAYMENT);
-//                if (!TextUtils.isEmpty(paymentAuth)) {
-//                    prefs.edit().putString(Preference.AUTH_TOKEN_PAYMENT, paymentAuth).apply();
-//                }
-//                return originalResponse;
-//            }
-//            return chain.proceed(request);
-//        }
-//    }
 }

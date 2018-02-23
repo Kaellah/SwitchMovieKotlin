@@ -9,7 +9,7 @@ ext {
     APP_NAME = "SwitchMovieKotlin"
     APP_ID = "com.kaellah.switchappkotlin"
 
-    minSdk = 19
+    minSdk = 21
     targetSdk = 25
     compileSdk = 26
     buildTools = "26.0.2"
@@ -34,14 +34,15 @@ ext {
     rxKotlinVersion = '2.1.0'
     rxImagePickerVersion = '2.0.0'
 
-    arch = '1.0.0'
+    arch = '1.1.0'
+    archRoom = '1.0.0'
 
     daggerVersion = '2.13'
     javaxVersion = '1@jar'
 
-    baseProject = '2.0.21'
+    baseProject = '2.0.24'
 
-    timber = '4.5.1'
+    timber = '4.6.0'
     loger = '2.1.1'
 
     retrofit = '2.3.0'

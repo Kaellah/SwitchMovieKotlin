@@ -1,49 +1,65 @@
 package com.kaellah.switchappkotlin.ui.movies.details
 
 import android.os.Bundle
+import com.kaellah.data.util.Utils
+import com.kaellah.domain.Constants
+import com.kaellah.domain.Constants.Extra.EXTRA_MOVIE_ID
+import com.kaellah.domain.entity.MovieEntity
 import com.kaellah.switchappkotlin.R
 import com.kaellah.switchappkotlin.dependency.Injectable
-import com.kaellah.switchappkotlin.ui.movies.MoviesViewModule
+import com.kaellah.switchappkotlin.ui.movies.MoviesViewModel
+import com.kaellah.switchappkotlin.utils.GlideSource
+import com.kaellah.switchappkotlin.utils.loadImage
 import com.kaellah.switchappkotlin.view.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_movies_list.*
+import io.reactivex.rxkotlin.addTo
+import jp.wasabeef.glide.transformations.BlurTransformation
+import kotlinx.android.synthetic.main.fragment_movie_details.*
 
 /**
  * @since 12/20/17
  */
-class MoviesDetailsFragment : BaseFragment<MoviesViewModule>(), Injectable {
+class MoviesDetailsFragment : BaseFragment<MoviesViewModel>(), Injectable {
 
     companion object {
-        fun newInstance(): MoviesDetailsFragment = MoviesDetailsFragment()
+        fun newInstance(movieId: Int) = MoviesDetailsFragment().apply {
+            arguments = Bundle().apply { putInt(EXTRA_MOVIE_ID, movieId) }
+        }
     }
 
-    override fun getContentView(): Int = R.layout.fragment_movies_list
+    private var movieId: Int = 0
 
-    override fun getViewModelClass(): Class<MoviesViewModule> = MoviesViewModule::class.java
+    override fun getContentView(): Int = R.layout.fragment_movie_details
+
+    override fun getViewModelClass(): Class<MoviesViewModel> = MoviesViewModel::class.java
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        toolbarMovies.setNavigationOnClickListener { activity?.onBackPressed() }
+        movieId = arguments?.getInt(EXTRA_MOVIE_ID)!!
+
+        toolbarMovie.setNavigationOnClickListener { activity?.onBackPressed() }
     }
 
     override fun onStart() {
         super.onStart()
-//        viewModel
-//                .getMovies(true, adapter.list)
-//                .subscribe({
-//                               val isEmpty = adapter.isEmpty
-//                               adapter.setList(it.first, false)
-//
-//                               if (layoutManagerState == null) {
-//                                   if (isEmpty) AnimUtils.animateLayout(moviesRecyclerView)
-//                                   adapter.notifyDataSetChanged()
-//                               } else {
-//                                   moviesRecyclerView.layoutManager.onRestoreInstanceState(layoutManagerState)
-//                                   layoutManagerState = null
-//                                   it.second.dispatchUpdatesTo(adapter)
-//                               }
-//                           },
-//                           { showError(it) })
-//                .addTo(onStopDisposable)
+        viewModel
+                .getMovie(movieId)
+                .subscribe({ updateFields(it) },
+                           { showError(it) })
+                .addTo(onStopDisposable)
+    }
+
+    private fun updateFields(movie: MovieEntity) {
+        val url = Utils.getCorrectImageUrl(movie.posterPath, Constants.Image.IMAGE_WIDTH)
+        movieImageView.loadImage(GlideSource.Fragment(this), url)
+
+        backgroundImageView.loadImage(GlideSource.Fragment(this), url, transformations = *arrayOf(BlurTransformation(25)))
+
+        titleTextViewValue.text = movie.title
+        toolbarMovie.title = movie.title
+        scoreTextViewValue.text = movie.voteAverage.toString()
+        ratingTextViewValue.text = if (movie.adult) getString(R.string.Rating) else getString(R.string.PG)
+        releaseTextViewValue.text = Utils.convertDate(movie.releaseDate)
+        overviewTextViewValue.text = movie.overview
     }
 }

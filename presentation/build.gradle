@@ -87,6 +87,7 @@ dependencies {
         // Excludes the support library because it's already included by Glide.
         transitive = false
     }
+    implementation 'jp.wasabeef:glide-transformations:3.1.1'
 
     kapt "com.github.bumptech.glide:compiler:${glide}"
 
@@ -95,7 +96,7 @@ dependencies {
     compile  "com.github.artemkopan:base-utils:${baseProject}"
     compile  "com.github.artemkopan:base-widget:${baseProject}"
 
-    compile  "com.android.support.constraint:constraint-layout:1.1.0-beta4"
+    compile  "com.android.support.constraint:constraint-layout:1.1.0-beta5"
 
     compile  "com.jakewharton.timber:timber:${timber}"
     compile  "com.orhanobut:logger:${loger}"
@@ -108,5 +109,5 @@ dependencies {
     compile  "android.arch.lifecycle:extensions:${arch}"
     kapt "android.arch.lifecycle:compiler:${arch}"
 
-    compile  "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile  "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

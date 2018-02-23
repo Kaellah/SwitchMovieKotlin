@@ -13,5 +13,5 @@ public interface MovieRepository {
 
     Single<List<MovieEntity>> getMovies(int page);
 
-    Single<MovieEntity> getMovie();
+    Single<MovieEntity> getMovie(Integer movieId);
 }

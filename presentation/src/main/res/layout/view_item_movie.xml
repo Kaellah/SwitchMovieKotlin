@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/movieImageView"
     android:layout_width="match_parent"
-    android:layout_height="280dp"
+    android:layout_height="@dimen/image_height"
     android:scaleType="centerCrop"
     android:src="@drawable/placeholder"
     tools:ignore="ContentDescription"

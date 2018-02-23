@@ -42,11 +42,11 @@ dependencies {
 
     compile "com.github.artemkopan:base-utils:${baseProject}"
 
-    compile "android.arch.persistence.room:runtime:${arch}"
-    compile "android.arch.persistence.room:rxjava2:${arch}"
-    kapt "android.arch.persistence.room:compiler:${arch}"
+    compile "android.arch.persistence.room:runtime:${archRoom}"
+    compile "android.arch.persistence.room:rxjava2:${archRoom}"
+    kapt "android.arch.persistence.room:compiler:${archRoom}"
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     compile 'com.jakewharton.threetenabp:threetenabp:1.0.5'
 }

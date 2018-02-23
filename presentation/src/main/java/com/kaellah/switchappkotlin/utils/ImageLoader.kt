@@ -1,5 +1,6 @@
 package com.kaellah.switchappkotlin.utils
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -39,6 +40,8 @@ fun ImageView.loadImageCircle(source: GlideSource = GlideSource.View(),
 }
 
 
+@SuppressLint("CheckResult")
+@Suppress("UNUSED_EXPRESSION")
 fun ImageView.loadImage(
         source: GlideSource = GlideSource.View(),
         model: Any?,

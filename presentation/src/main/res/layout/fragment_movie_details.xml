@@ -9,8 +9,15 @@
     tools:ignore="RtlHardcoded,ContentDescription"
     >
 
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/placeholder"
+        />
+
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarMovies"
+        android:id="@+id/toolbarMovie"
         style="@style/Toolbar.Shadow"
         app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
         />
@@ -18,7 +25,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toolbarMovies"
+        app:layout_constraintTop_toBottomOf="@id/toolbarMovie"
         >
 
         <android.support.constraint.ConstraintLayout
@@ -35,9 +42,8 @@
             <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/movieImageView"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/image_height_small"
                 android:src="@drawable/placeholder"
-                app:layout_constraintBottom_toBottomOf="@id/releaseTextViewValue"
                 app:layout_constraintDimensionRatio="h,1:1.1"
                 app:layout_constraintEnd_toStartOf="@id/guideline_40_horizontal"
                 app:layout_constraintStart_toStartOf="parent"
@@ -101,7 +107,7 @@
             <TextView
                 android:id="@+id/titleTextViewValue"
                 style="@style/MovieTextViewBig"
-                app:layout_constraintTop_toBottomOf="@id/releaseTextViewValue"
+                app:layout_constraintTop_toBottomOf="@id/movieImageView"
                 tools:text="Ant - Man(2015)"
                 />
 

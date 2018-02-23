@@ -3,7 +3,7 @@ package com.kaellah.switchappkotlin.dependency.module;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 
-import com.kaellah.switchappkotlin.ui.movies.MoviesViewModule;
+import com.kaellah.switchappkotlin.ui.movies.MoviesViewModel;
 import com.kaellah.switchappkotlin.viewmodel.ViewModelFactory;
 
 import java.lang.annotation.Documented;
@@ -22,8 +22,8 @@ public abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(MoviesViewModule.class)
-    abstract ViewModel bindMoviesViewModule(MoviesViewModule viewModel);
+    @ViewModelKey(MoviesViewModel.class)
+    abstract ViewModel bindMoviesViewModule(MoviesViewModel viewModel);
 
     @Binds
     abstract ViewModelProvider.Factory bindViewModelFactory(ViewModelFactory factory);

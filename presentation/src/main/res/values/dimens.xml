@@ -19,4 +19,7 @@
     <dimen name="progress_bar_size">32dp</dimen>
     <dimen name="radius">6dp</dimen>
     <dimen name="stroke">1dp</dimen>
+
+    <dimen name="image_height">280dp</dimen>
+    <dimen name="image_height_small">220dp</dimen>
 </resources>

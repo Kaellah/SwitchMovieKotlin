@@ -19,19 +19,11 @@ public interface MovieDao {
     Flowable<List<Movie>> getAll();
 
     @Query("select * from " + TABLE_MOVIES + " where movies.id in (:ids)")
-    List<Movie> getMovies(List<String> ids);
-
-//    @Query("select * from " + TABLE_MOVIES + " where movies.id like :id limit 1")
-//    Flowable<Movie> subscribeMovie(String id);
+    List<Movie> getMovies(List<Integer> ids);
 
     @Query("select * from " + TABLE_MOVIES + " where movies.id like :id limit 1")
-    Single<Movie> getMovie(String id);
+    Single<Movie> getMovie(Integer id);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(List<Movie> movies);
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(Movie movie);
-
-
 }
