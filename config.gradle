@@ -24,7 +24,7 @@ ext {
 
 //Dependencies
 ext {
-    supportLibraryVersion = '27.+'
+    supportLibraryVersion = '27.1.0'
     gmsVersion = "11.6.2"
     firebaseVersion = gmsVersion
 

@@ -39,4 +39,49 @@ public class AppModule {
     SharedPreferences provideSharedPreferences() {
         return application.getSharedPreferences(BuildConfig.APPLICATION_ID, Context.MODE_PRIVATE);
     }
+
+//    @Provides
+//    @AuthToken
+//    String provideUserToken(SharedPreferences prefs) {
+//        return prefs.getString(Preference.AUTH_TOKEN, "");
+//    }
+//
+//    @Provides
+//    @UserId
+//    String provideUserId(SharedPreferences prefs) {
+//        return prefs.getString(Preference.USER_ID, "");
+//    }
+//
+//    @Provides
+//    @PaymentToken
+//    String providePaymentToken(SharedPreferences prefs) {
+//        return prefs.getString(Preference.AUTH_TOKEN_PAYMENT, "");
+//    }
+//
+//
+//    @Provides
+//    @Attachments
+//    @Singleton
+//    ArrayList<String> attachments() {return new ArrayList<>();}
+//
+//
+//    @Qualifier
+//    @Retention(RetentionPolicy.SOURCE)
+//    public @interface AuthToken {
+//    }
+//
+//    @Qualifier
+//    @Retention(RetentionPolicy.SOURCE)
+//    public @interface PaymentToken {
+//    }
+//
+//    @Qualifier
+//    @Retention(RetentionPolicy.SOURCE)
+//    public @interface UserId {
+//    }
+//
+//    @Qualifier
+//    @Retention(RetentionPolicy.SOURCE)
+//    public @interface Attachments {
+//    }
 }

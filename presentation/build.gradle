@@ -57,7 +57,7 @@ dependencies {
     compile project(':domain')
     compile project(':data')
 
-    compile 'com.android.support:multidex:1.0.2'
+    compile 'com.android.support:multidex:1.0.3'
 
     //RxJava
     compile  "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"

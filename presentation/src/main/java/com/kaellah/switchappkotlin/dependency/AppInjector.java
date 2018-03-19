@@ -80,8 +80,7 @@ public class AppInjector {
         if (activity instanceof HasSupportFragmentInjector || activity instanceof Injectable) {
             AndroidInjection.inject(activity);
         } else {
-            Timber.w("Your activity doesn't injectable %s.\n" +
-                     "Implement Injectable interface if you want injectable activity ", activity);
+            Timber.w("Your activity doesn't injectable %s.\nImplement Injectable interface if you want injectable activity ", activity);
         }
         if (activity instanceof FragmentActivity) {
             ((FragmentActivity) activity).getSupportFragmentManager()

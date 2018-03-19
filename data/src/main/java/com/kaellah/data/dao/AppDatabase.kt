@@ -8,7 +8,7 @@ import com.kaellah.data.dao.movie.Movie
 import com.kaellah.data.dao.movie.MovieDao
 
 
-@Database(entities = arrayOf(Movie::class),
+@Database(entities = [(Movie::class)],
           version = 1)
 abstract class AppDatabase : RoomDatabase() {
 

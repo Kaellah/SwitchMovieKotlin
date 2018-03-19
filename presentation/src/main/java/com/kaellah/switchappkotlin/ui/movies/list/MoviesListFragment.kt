@@ -61,11 +61,6 @@ class MoviesListFragment : BaseFragment<MoviesViewModel>(), Injectable, OnItemCl
         getMovies(true, EndlessRecyclerViewScrollListener.STARTING_PAGE_INDEX)
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//
-//    }
-
     private fun getMovies(fetch: Boolean, page: Int) {
         viewModel
                 .getMovies(fetch, adapter.list, page)
